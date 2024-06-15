@@ -1,4 +1,4 @@
 ﻿using DotnetConsumer;
 
 var consumers = new Consumers();
-consumers.basicConsumer();
+consumers.BasicConsumer();

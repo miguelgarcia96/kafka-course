@@ -5,7 +5,7 @@ namespace DotnetConsumer;
 public class Consumers
 {
     private readonly string _topic = "TP-TRANSACTIONS";
-    public void basicConsumer()
+    public void BasicConsumer()
     {
         Console.WriteLine("Starting basicConsumer...");
 
