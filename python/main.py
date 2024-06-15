@@ -1,5 +1,9 @@
+from consumer import Consumers
+
 def main():
-    print("Hello world!")
+    consumers = Consumers()
+
+    consumers.basicConsumer()
 
 if __name__ == "__main__":
     main()
