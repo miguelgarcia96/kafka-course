@@ -52,6 +52,8 @@ class Consumers:
             print(f"An error ocurred: {e}")
         finally:
             consumer.close()
+            # TODO: Verify if dispose is needed
+            # consumer.dispose()
 
     def decode_msg(self, msg):
         return msg.decode('utf-8')
