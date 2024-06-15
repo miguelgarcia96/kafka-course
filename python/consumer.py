@@ -10,7 +10,9 @@ class Consumers:
         settings = {}        
 
         settings["bootstrap.servers"] = "localhost:9092"
-        settings["group.id"] = "GR-TRANSACTIONS"
+        settings["group.id"] = "GR-TRANSACTIONS-THREE"
+
+        print("Consumer settings group.id: {}".format(settings["group.id"]))
 
         # auto.offset.reset sirve para indicarle al consumer que lea desde el inicio del topic
         # opcional, si no se coloca, el consumer leerá desde el último offset
@@ -44,9 +46,12 @@ class Consumers:
                     continue
 
                 # Imprimir el mensaje recibido con el key, valor y partición
-                print("Received message: Key {} Value {} Partition: {}".format(msg.key(), msg.value(), msg.partition()))
+                print("Received message: Key {} Value {} Partition: {}".format(msg.key(), self.decode_msg(msg.value()), msg.partition()))
 
         except Exception as e:
             print(f"An error ocurred: {e}")
         finally:
             consumer.close()
+
+    def decode_msg(self, msg):
+        return msg.decode('utf-8')
